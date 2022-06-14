@@ -11,7 +11,7 @@ struct SettingModalView: View {
     @Binding var showModal: Bool
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var cleaning: CleaningDataStore
-
+    
     
     var body: some View {
         ZStack {
@@ -21,7 +21,6 @@ struct SettingModalView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-    //                        self.presentationMode.wrappedValue.dismiss()
                             showModal.toggle()
                             cleaning.isUpdate.toggle()
                             
@@ -64,10 +63,9 @@ extension Text {
     }
 }
 
-//struct SettingModalView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SettingModalView()
-//            .environmentObject(CleaningDataStore())
-//    }
-//}
-
+struct SettingModalView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingModalView(showModal: .constant(true))
+            .environmentObject(CleaningDataStore())
+    }
+}
