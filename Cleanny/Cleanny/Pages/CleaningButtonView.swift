@@ -37,7 +37,7 @@ struct CleaningButtonView: View {
             Circle()
                 .foregroundColor(.white)
                 .frame(width: 60, height: 60)
-                .shadow(color: Color("MBlack").opacity(0.3), radius: 5, x: 1, y: 1)
+                .shadow(color: Color("SBlue").opacity(0.3), radius: 4, x: 1, y: 1)
                 .scaleEffect(tap ? 1.1 : 1)
                 .overlay(
                     Image(cleaning.imageName)
@@ -72,10 +72,10 @@ struct CleaningButtonView: View {
         }
     }
 }
-//
-//struct CleaningButtonView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0), complateText: .constant("분리수거 완료 ✅"))
-//            .previewLayout(.sizeThatFits)
-//    }
-//}
+
+struct CleaningButtonView_Previews: PreviewProvider {
+    static var previews: some View {
+        CleaningButtonView(cleaning: Cleaning(name: "분리수거", imageName: "DisposeTrash", activated: true, cycle: 3.0, decreaseRate: 3.0, currentPercent: 3.0), complateText: .constant("분리수거 완료 ✅"), progress: 3.0)
+            .previewLayout(.sizeThatFits)
+    }
+}
