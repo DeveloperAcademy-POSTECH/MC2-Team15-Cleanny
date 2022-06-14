@@ -16,33 +16,35 @@ struct SettingModalView: View {
     var body: some View {
         ZStack {
             Color("MBackground").ignoresSafeArea()
-            VStack(alignment: .leading) {
-                HStack {
+            ScrollView() {
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                        Button(action: {
+    //                        self.presentationMode.wrappedValue.dismiss()
+                            showModal.toggle()
+                            cleaning.isUpdate.toggle()
+                            
+                        }, label: {
+                            Text("완료")
+                                .modalButton()
+                        })
+                    }
+                    
+                    Text("청소 선택")
+                        .modalTitle()
+                    
+                    CleaningCategoryView()
+                    Spacer(minLength: 30)
+                    
+                    Text("주기 설정")
+                        .modalTitle()
+                    
+                    SettingSliderView()
                     Spacer()
-                    Button(action: {
-//                        self.presentationMode.wrappedValue.dismiss()
-                        showModal.toggle()
-                        cleaning.isUpdate.toggle()
-                        
-                    }, label: {
-                        Text("완료")
-                            .modalButton()
-                    })
                 }
-                
-                Text("청소 선택")
-                    .modalTitle()
-                
-                CleaningCategoryView()
-                Spacer(minLength: 30)
-                
-                Text("주기 설정")
-                    .modalTitle()
-                
-                SettingSliderView()
-                Spacer()
+                .padding()
             }
-            .padding()
         }
     }
 }

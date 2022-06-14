@@ -44,12 +44,12 @@ struct SettingCard: View {
                 }
             }
         })
-        .frame(width: 114, height: 140.0)
     }
 }
 
 struct SettingCard_Previews: PreviewProvider {
     static var previews: some View {
         SettingCard(cleaning: Cleaning(name: "분리수거", imageName:"DisposeTrash", activated: true, cycle: 3, decreaseRate:0.0003858, currentPercent: 100))
+            .frame(width: 114, height: 140.0)
     }
 }

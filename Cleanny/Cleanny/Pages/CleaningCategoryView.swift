@@ -21,6 +21,7 @@ struct CleaningCategoryView: View {
         LazyVGrid(columns: columns, spacing: 10) {
             ForEach(cleaning.list) {category in
                 SettingCard(cleaning: category)
+                    .frame(height: 140.0)
             }
         }
     }
