@@ -19,9 +19,10 @@ struct CharacterView: View {
     @State private var showModal = false
     
     let charcterArr = ["Cry", "Heit", "Laugh", "Love"]
+    let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             Color("MBackground").ignoresSafeArea()
             VStack {
                 HStack {
@@ -36,18 +37,16 @@ struct CharacterView: View {
                         SettingModalView(showModal: $showModal)
                     }
                 }
-                Spacer()
                 
-                ZStack(alignment: .top) {
+                ZStack {
                     LottieView(name: charcterArr[index])
                     Text("\(complateText)")
-                        .offset(y: -20)
+                        .offset(y: -screenHeight/5)
                 }
+                .frame(maxHeight: screenHeight/2.5)
 
-                Spacer()
-                
                 CleaningCategoryProgress(complateText: $complateText)
-                Spacer(minLength:  150)
+                Spacer(minLength: screenHeight/6)
             }
         }
         .onChange(of: userData.totalPercentage) { newValue in

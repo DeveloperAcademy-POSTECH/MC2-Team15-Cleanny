@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-import AxisTabView  
+import AxisTabView
 
 struct ContentView: View {
     @EnvironmentObject var cleaning: CleaningDataStore

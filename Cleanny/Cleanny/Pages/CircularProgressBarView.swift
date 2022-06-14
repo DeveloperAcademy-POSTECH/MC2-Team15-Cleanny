@@ -32,7 +32,7 @@ struct CircularProgressBarView: View {
                 .overlay(
                     Circle()
                         .trim(from: 0, to: CGFloat(self.progress * 0.01))
-                        .stroke(.white.opacity(0.4), lineWidth: 4)
+                        .stroke(Color("MBackground").opacity(0.4), lineWidth: 4)
                         .rotationEffect(Angle(degrees: -90))
                         .shadow(color: .white, radius: 2, x: 3, y: 4)
                         .clipShape(Circle().trim(from: 0, to: CGFloat(self.progress * 0.01)))
@@ -42,7 +42,7 @@ struct CircularProgressBarView: View {
                 .foregroundColor(Color("MBackground"))
                 .rotationEffect(Angle(degrees: -90))
                 .shadow(color: .white.opacity(0.4), radius: 2, x: 3, y: 4)
-                .frame(width: CGFloat(95.5 - lineWidth), height: CGFloat(95.5 - lineWidth))
+                .frame(maxWidth: CGFloat(95.5 - lineWidth), maxHeight: CGFloat(95.5 - lineWidth))
         }
     }
 }
