@@ -33,6 +33,7 @@ struct CleaningCategoryProgress: View {
                 }
             }
         }
+        .padding(.horizontal)
     }
 }
 
