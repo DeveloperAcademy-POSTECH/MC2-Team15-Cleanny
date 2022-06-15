@@ -43,6 +43,8 @@
 		A36369EC2854703800B7B645 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369E92854703800B7B645 /* SettingCard.swift */; };
 		A36369ED2854703800B7B645 /* SettingModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36369EA2854703800B7B645 /* SettingModalView.swift */; };
 		A372BB8D285883080083E2FC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372BB8C285883080083E2FC /* OnboardingView.swift */; };
+		A372BB8F2859A2770083E2FC /* FirstOnboradingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372BB8E2859A2770083E2FC /* FirstOnboradingView.swift */; };
+		A372BB912859A4F60083E2FC /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372BB902859A4F60083E2FC /* LastOnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,8 @@
 		A36369E92854703800B7B645 /* SettingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		A36369EA2854703800B7B645 /* SettingModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingModalView.swift; sourceTree = "<group>"; };
 		A372BB8C285883080083E2FC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A372BB8E2859A2770083E2FC /* FirstOnboradingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FirstOnboradingView.swift; path = Cleanny/Pages/FirstOnboradingView.swift; sourceTree = SOURCE_ROOT; };
+		A372BB902859A4F60083E2FC /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,8 @@
 				34662BA9285509380088A4B2 /* LottieView.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 				9A890C572855F4A00013248D /* BarChartView.swift */,
+				A372BB8E2859A2770083E2FC /* FirstOnboradingView.swift */,
+				A372BB902859A4F60083E2FC /* LastOnboardingView.swift */,
 				A372BB8C285883080083E2FC /* OnboardingView.swift */,
 				34662BA6285500250088A4B2 /* Lottie */,
 			);
@@ -300,6 +306,7 @@
 				9A7145D628532B3200AD9B45 /* Cleaning.swift in Sources */,
 				9A96110A285746E60028C7C8 /* UserDataStore.swift in Sources */,
 				A36369EC2854703800B7B645 /* SettingCard.swift in Sources */,
+				A372BB8F2859A2770083E2FC /* FirstOnboradingView.swift in Sources */,
 				A36369EB2854703800B7B645 /* SettingSlider.swift in Sources */,
 				9A93370E2852B67600F7C587 /* ChartView.swift in Sources */,
 				9AE62C282853349700FEDB9C /* User.swift in Sources */,
@@ -308,6 +315,7 @@
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
 				A3318C562853646500B5166F /* CleaningButtonView.swift in Sources */,
 				34A30AB62854919200DFFB3F /* CleaningCategoryView.swift in Sources */,
+				A372BB912859A4F60083E2FC /* LastOnboardingView.swift in Sources */,
 				9A3934662850892A00393B19 /* Cleanny.xcdatamodeld in Sources */,
 				9A39345A2850892800393B19 /* CleannyApp.swift in Sources */,
 				9A3934792850B67F00393B19 /* CharacterView.swift in Sources */,
