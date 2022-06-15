@@ -9,25 +9,21 @@ import SwiftUI
 
 struct OnboardingView: View {
     @Binding var firstLaunching: Bool
-    @State private var selection = 0
     
     var body: some View {
-        VStack {
-            if selection<10 {
-                Button("건너뛰기") {
-                    selection = 10
-                }
-            }
-            TabView(selection: $selection) {
-                FirstOnboradingView(number:1, firstLaunching: $firstLaunching) .tag(0)
-                FirstOnboradingView(number:2, firstLaunching: $firstLaunching) .tag(1)
-//                FirstOnboradingView(number:3, firstLaunching: $firstLaunching) .tag(2)
-                LastOnboardingView(firstLaunching: $firstLaunching) .tag(10)
-            }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-        }
         
+        VStack {
+            Text("온보딩 테스트 페이지")
+            Button {
+                firstLaunching.toggle()
+            } label: {
+                Text("시작하기")
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color("MBlue"))
+                    .cornerRadius(10)
+            }
+        }
     }
 }
 //
