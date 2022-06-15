@@ -88,6 +88,7 @@ struct ContentView: View {
                 print(userData.totalPercentage)
                 isUpdatingView.toggle()
             }
+        // MARK: OnBoarding
         //앱 최초 실행 시 OnBoardingView 보이기
                 .fullScreenCover(isPresented: $firstLaunching) {
                     OnboardingView(firstLaunching: $firstLaunching)
