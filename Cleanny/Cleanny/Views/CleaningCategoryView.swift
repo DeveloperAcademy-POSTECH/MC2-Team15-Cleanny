@@ -9,7 +9,12 @@ import SwiftUI
 
 struct CleaningCategoryView: View {
     
-    @EnvironmentObject var cleaning: CleaningDataStore
+//    @EnvironmentObject var cleaning: CleaningDataStore
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
+        animation: .default)
+    private var cleans: FetchedResults<Clean>
     
     let columns = [
         GridItem(.flexible()),
@@ -19,10 +24,16 @@ struct CleaningCategoryView: View {
     
     var body: some View {
         LazyVGrid(columns: columns, spacing: 10) {
-            ForEach(cleaning.list) { category in
+//            ForEach(cleaning.list) { category in
+//                SettingCard(cleaning: category)
+//                    .frame(height: 140.0)
+//            }
+            ForEach(cleans) { category in
                 SettingCard(cleaning: category)
                     .frame(height: 140.0)
+
             }
         }
     }
 }
+

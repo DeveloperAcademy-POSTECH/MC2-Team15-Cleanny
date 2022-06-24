@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct CleannyApp: App {
+    @UIApplicationDelegateAdaptor var delegate: AppDelegate
     @StateObject var cleaning =  CleaningDataStore()
     @StateObject var userData = UserDataStore()
     @StateObject var MonthData = MonthDataStore()
@@ -20,6 +21,7 @@ struct CleannyApp: App {
                 .environmentObject(cleaning)
                 .environmentObject(userData)
                 .environmentObject(MonthData)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

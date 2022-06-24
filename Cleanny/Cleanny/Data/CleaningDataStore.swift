@@ -11,7 +11,9 @@ class CleaningDataStore: ObservableObject {
     
     @Published var list: [Cleaning]
     @Published var isUpdate = false
-    @Published var charcterArr = ["Cry", "Heit", "Laugh", "Love"]
+
+    @Published var charcterArr = ["Heit", "Cry", "Laugh", "Love"]
+
     
     init() {
         list = [

@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Clean" representedClassName="Clean" syncable="YES" codeGenerationType="class">
+        <attribute name="activated" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="currentPercent" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="cycle" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="decreaseRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="savedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="MonthHistory" representedClassName="MonthHistory" syncable="YES" codeGenerationType="class">
+        <attribute name="cleaningCount" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="monthName" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="NoUse" representedClassName="NoUse" syncable="YES" codeGenerationType="class"/>
+    <entity name="NoUse2" representedClassName="NoUse2" syncable="YES" codeGenerationType="class"/>
+    <entity name="NoUse3" representedClassName="NoUse3" syncable="YES" codeGenerationType="class"/>
+    <entity name="NoUse4" representedClassName="NoUse4" syncable="YES" codeGenerationType="class"/>
+    <entity name="NoUse5" representedClassName="NoUse5" syncable="YES" codeGenerationType="class"/>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="denominator" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="numerator" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="totalPercentage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+    </entity>
+    <configuration name="Cloud" usedWithCloudKit="YES">
+        <memberEntity name="User"/>
+    </configuration>
     <elements>
+        <element name="Clean" positionX="-27" positionY="54" width="128" height="149"/>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="MonthHistory" positionX="-27" positionY="99" width="128" height="74"/>
+        <element name="NoUse" positionX="-36" positionY="90" width="128" height="29"/>
+        <element name="NoUse2" positionX="-18" positionY="108" width="128" height="29"/>
+        <element name="NoUse3" positionX="18" positionY="126" width="128" height="29"/>
+        <element name="NoUse4" positionX="0" positionY="117" width="128" height="29"/>
+        <element name="NoUse5" positionX="-45" positionY="81" width="128" height="29"/>
+        <element name="User" positionX="-45" positionY="9" width="128" height="89"/>
     </elements>
 </model>

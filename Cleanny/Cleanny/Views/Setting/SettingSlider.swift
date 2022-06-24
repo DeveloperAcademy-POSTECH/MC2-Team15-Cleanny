@@ -9,11 +9,13 @@ import SwiftUI
 
 struct SettingSlider: View {
     
-    @ObservedObject var cleaning: Cleaning
+    @ObservedObject var cleaning: Clean
+//    @ObservedObject var cleaning: Cleaning
+    
     
     var body: some View {
         HStack {
-            Image("\(cleaning.imageName)")
+            Image("\(cleaning.imageName ?? "")")
                 .renderingMode(.template)
                 .resizable()
                 .foregroundColor(cleaning.activated ? Color("MBlue") : Color("MGray"))

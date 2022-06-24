@@ -9,12 +9,18 @@ import SwiftUI
 
 struct SettingCard: View {
     
-    @ObservedObject var cleaning: Cleaning
+//    @ObservedObject var cleaning: Cleaning
+    @ObservedObject var cleaning: Clean
+    
+    @Environment(\.managedObjectContext) private var viewContext
+    
     
     var body: some View {
         
         Button(action: {
             cleaning.activated.toggle()
+            updateClean()
+            
         }) {
             ZStack {
                 RoundedRectangle(cornerRadius: 10)
@@ -32,7 +38,7 @@ struct SettingCard: View {
                             .padding(7)
                     }
                     
-                    Image("\(cleaning.imageName)")
+                    Image("\(cleaning.imageName ?? "")")
                         .renderingMode(.template)
                         .resizable()
                         .foregroundColor(cleaning.activated ? Color("MBlue") : Color("DGray"))
@@ -40,13 +46,20 @@ struct SettingCard: View {
                     
                     Spacer()
                     
-                    Text("\(cleaning.name)")
+                    Text("\(cleaning.name ?? "")")
                         .fontWeight(.semibold)
                         .foregroundColor(Color("DGray"))
                     
                     Spacer()
                 }
             }
+        }
+    }
+    func updateClean() {
+        do {
+            try viewContext.save()
+        }catch{
+            viewContext.rollback()
         }
     }
 }

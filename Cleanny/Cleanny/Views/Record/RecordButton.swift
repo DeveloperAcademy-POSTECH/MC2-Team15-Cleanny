@@ -27,6 +27,6 @@ struct RecordButton: View {
                         .shadow(color: Color("SBlue").opacity(0.3), radius: 5, x: 1, y: 1)
                 )
         }
-        .padding()
+        .frame(width: UIScreen.main.bounds.width/5, height: UIScreen.main.bounds.width/5)
     }
 }

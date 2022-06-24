@@ -15,7 +15,7 @@ struct CircularProgressBarView: View {
     var body: some View {
         
         let angularGradientProgress = AngularGradient(
-            gradient: Gradient(colors: [progress <= 25 ? Color("GMRed") : Color("GMBlue"), progress <= 25 ? Color("MRed") : Color("MBlue")]),
+            gradient: Gradient(colors: [progress <= 50 ? Color("GMRed") : Color("GMBlue"), progress <= 50 ? Color("MRed") : Color("MBlue")]),
             center: .center,
             startAngle: .degrees(0),
             endAngle: .degrees(3.6 * progress))

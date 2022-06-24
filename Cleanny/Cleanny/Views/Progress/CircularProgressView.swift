@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct CircularProgress: View {
-    @ObservedObject var cleaning:Cleaning
+    @ObservedObject var cleaning:Clean
+//    @ObservedObject var cleaning:Cleaning
     
     let lineWidth: Double = 20
     

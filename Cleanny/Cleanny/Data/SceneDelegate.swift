@@ -7,16 +7,26 @@ import UIKit
 import SwiftUI
 import CloudKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
     
+    @StateObject var cleaning =  CleaningDataStore()
+    @StateObject var userData = UserDataStore()
+    @StateObject var MonthData = MonthDataStore()
+    let persistenceController = PersistenceController.shared
     var window: UIWindow?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let contentView = ContentView().environmentObject(CloudkitUserViewModel())
+
+        let launchView = LaunchView()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController = UIHostingController(rootView: launchView
+                .environmentObject(cleaning)
+                .environmentObject(userData)
+                .environmentObject(MonthData)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext))
+            //            window.rootViewController = UIHostingController(rootView: contentView.environment(\.managedObjectContext, persistenceController.container.viewContext))
             self.window = window
             window.makeKeyAndVisible()
         }

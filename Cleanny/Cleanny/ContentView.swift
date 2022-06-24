@@ -13,8 +13,23 @@ struct ContentView: View {
     
     @AppStorage("firstLaunching") var firstLaunching: Bool = true
     
-    @EnvironmentObject var cleaning: CleaningDataStore
-    @EnvironmentObject var userData: UserDataStore
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \User.name, ascending: true)],
+        animation: .default)
+    private var users: FetchedResults<User>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
+        animation: .default)
+    private var cleans: FetchedResults<Clean>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \MonthHistory.index, ascending: true)],
+        animation: .default)
+    private var monthHistoryData: FetchedResults<MonthHistory>
+    @Environment(\.managedObjectContext) private var viewContext
+    // @EnvironmentObject var cleaning: CleaningDataStore
+    // @EnvironmentObject var userData: UserDataStore
     
     @State var index: Int = 3
     @State private var isUpdatingView: Bool = false
@@ -29,6 +44,7 @@ struct ContentView: View {
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
+      
         GeometryReader { proxy in
             AxisTabView(selection: $selection, constant: constant) { state in
                 if constant.axisMode == .bottom {
@@ -83,17 +99,48 @@ struct ContentView: View {
         .animation(.easeInOut, value: cornerRadius)
         .navigationTitle("Screen \(selection + 1)")
         .onReceive(timer) { time in
+            if(monthHistoryData.isEmpty){}
+            else{
             for index in 0...5 {
-                cleaning.list[index].percentCalculator()
+                var useTime = Int(Date().timeIntervalSince(cleans[index].savedTime!))
+                if(useTime < 0){ useTime = 0 }
+                cleans[index].currentPercent = cleans[index].currentPercent - (Double(useTime) * cleans[index].decreaseRate)
+                cleans[index].savedTime = Date()
+                if(cleans[index].currentPercent < 0) {cleans[index].currentPercent = 0}
+            
             }
-            self.index = userData.update(cleaning: cleaning)
+            
+            users[0].numerator = 0
+            users[0].denominator = 0
+            
+            for oneCleaing in cleans{
+                if(oneCleaing.activated){
+                    users[0].numerator += oneCleaing.currentPercent
+                    users[0].denominator += 1.0
+                }
+            }
+            
+            users[0].totalPercentage = users[0].denominator == 0 ? -100 : (users[0].numerator / users[0].denominator)
+            index = Int(users[0].totalPercentage) / 25
+       
+            
+            do {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+            
+            
             isUpdatingView.toggle()
+            }
+            
         }
-        //MARK: Onboarding
         .fullScreenCover(isPresented: $firstLaunching) {
             OnboardingView(firstLaunching: $firstLaunching)
         }
     }
+    
     
     struct ControlView: View {
         
@@ -119,11 +166,11 @@ struct ContentView: View {
                 switch(tag){
                 case 0 :
                     CharacterView(index: $index, isCleaning: $isCleaning)
+                        .environmentObject(CleaningDataStore())
                 case 1:
-                    RecordView()
+                    RecordView().environmentObject(CleaningDataStore())
                 case 2 :
-                    ShareView(onAdd: empty)
-                        .environmentObject(CloudkitUserViewModel())
+                    ShareView().environmentObject(CloudkitUserViewModel())
                 default:
                     CharacterView(index: $index, isCleaning: $isCleaning)
                 }
@@ -143,9 +190,9 @@ struct ContentView: View {
         
         @Binding var constant: ATConstant
         @Binding var selection: Int
-                
+        
         @State private var y: CGFloat = 0
-
+        
         let tag: Int
         let isSelection: Bool
         let systemName: String
@@ -178,5 +225,6 @@ struct ContentView: View {
         var body: some View {
             content
         }
+        
     }
 }

@@ -356,12 +356,8 @@ public struct BarChartView : View {
                     .offset(x: self.getLabelViewOffset(touchLocation: self.touchLocation), y: -6)
                     .foregroundColor(self.style.legendTextColor)
                 }
-                
             }
-        }.frame(minWidth:self.formSize.width,
-                maxWidth: self.isFullWidth ? .infinity : self.formSize.width,
-                minHeight:self.formSize.height,
-                maxHeight:self.formSize.height)
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
         .gesture(DragGesture()
             .onChanged({ value in
                 self.touchLocation = value.location.x/self.formSize.width

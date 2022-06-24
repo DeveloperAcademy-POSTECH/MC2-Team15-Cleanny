@@ -9,7 +9,14 @@ import SwiftUI
 
 struct SettingModalView: View {
     
-    @EnvironmentObject var cleaning: CleaningDataStore
+    //CoreData
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Clean.index, ascending: true)],
+        animation: .default)
+    private var cleans: FetchedResults<Clean>
+    
+//    @EnvironmentObject var cleaning: CleaningDataStore
     
     @Binding var showModal: Bool
 
@@ -24,12 +31,17 @@ struct SettingModalView: View {
                         Spacer()
                         Button(action: {
                             showModal.toggle()
-                            let filterArr = cleaning.list.filter { filterItem in
+//                            let filterArr = cleaning.list.filter { filterItem in
+//                                return filterItem.activated
+//                            }
+                            let filterArr = cleans.filter { filterItem in
                                 return filterItem.activated
                             }
                             
                             filterArr.forEach { item in
-                                cleaning.update(cleaning: item)
+                                //업데이트 함수를 작성할 뷰모델 고려해봐야함 각 페이지 마다 함수 작성 중..
+//                                cleaning.update(cleaning: item)
+                                updateClean(clean: item)
                             }
                             
                         }) {
@@ -54,6 +66,16 @@ struct SettingModalView: View {
             }
         }
         
+    }
+
+    func updateClean(clean: Clean?) {
+        guard let clean = clean else { return }
+        clean.decreaseRate =  1 / (clean.cycle * 864)
+        do {
+            try viewContext.save()
+        }catch{
+            viewContext.rollback()
+        }
     }
 }
 
