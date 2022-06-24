@@ -6,7 +6,8 @@
 	<string>development</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.testCloud.juju</string>
+		<string>iCloud.com.Cookie.cloudkit.PrivateSync</string>
+		<string>iCloud.com.exampleCookie.private-database</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>

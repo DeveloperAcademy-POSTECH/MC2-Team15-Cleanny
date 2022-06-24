@@ -39,6 +39,7 @@
 		73E56B54285B84BC001333B2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B53285B84BC001333B2 /* CoreDataStack.swift */; };
 		73E56B56285B84E6001333B2 /* LastOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E56B55285B84E6001333B2 /* LastOnboardingView.swift */; };
 		9A0EB0F428521B62003BD148 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0EB0F328521B62003BD148 /* CircularProgressView.swift */; };
+		9A2F0FA72865824600CA0B70 /* InfoModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2F0FA62865824600CA0B70 /* InfoModalView.swift */; };
 		9A39345A2850892800393B19 /* CleannyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3934592850892800393B19 /* CleannyApp.swift */; };
 		9A39345C2850892800393B19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A39345B2850892800393B19 /* ContentView.swift */; };
 		9A39345E2850892A00393B19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A39345D2850892A00393B19 /* Assets.xcassets */; };
@@ -108,6 +109,7 @@
 		73E56B53285B84BC001333B2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		73E56B55285B84E6001333B2 /* LastOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastOnboardingView.swift; sourceTree = "<group>"; };
 		9A0EB0F328521B62003BD148 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		9A2F0FA62865824600CA0B70 /* InfoModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModalView.swift; sourceTree = "<group>"; };
 		9A3934562850892800393B19 /* Cleanny.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleanny.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A3934592850892800393B19 /* CleannyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleannyApp.swift; sourceTree = "<group>"; };
 		9A39345B2850892800393B19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				34662BA9285509380088A4B2 /* LottieView.swift */,
 				A3318C552853646500B5166F /* CleaningButtonView.swift */,
 				34662BA6285500250088A4B2 /* Lottie */,
+				9A2F0FA62865824600CA0B70 /* InfoModalView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				341F6580285B860900CAC44A /* CoreDataStack.swift in Sources */,
 				731AEDC4285DFB7700838560 /* CustomTextField.swift in Sources */,
 				34A30AB82854932A00DFFB3F /* SettingSliderView.swift in Sources */,
+				9A2F0FA72865824600CA0B70 /* InfoModalView.swift in Sources */,
 				735198F92858555C0017A098 /* CloudkitUserViewModel.swift in Sources */,
 				344601002855DE3F00B2E740 /* CleaningDataStore.swift in Sources */,
 				9AF3F4872858645400A7590D /* MonthDataStore.swift in Sources */,
@@ -646,7 +650,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ada.loudy.cleanny;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -679,7 +686,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+
+				PRODUCT_BUNDLE_IDENTIFIER = com.Loudy.Cleanny.chaemin;
+
 				PRODUCT_BUNDLE_IDENTIFIER = com.ada.loudy.cleanny;
+
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
