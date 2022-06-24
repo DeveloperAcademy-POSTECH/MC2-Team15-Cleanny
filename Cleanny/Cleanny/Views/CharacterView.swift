@@ -29,7 +29,7 @@ struct CharacterView: View {
     @State private var isUpdatingView: Bool = true
     @State private var complateText = ""
     @State private var showModal = false
-    
+    @State private var infoModal = false
     let screenHeight = UIScreen.main.bounds.size.height
     
     var body: some View {
@@ -39,6 +39,17 @@ struct CharacterView: View {
             Color("MBackground").ignoresSafeArea()
             VStack {
                 HStack {
+                    Button(action: { self.infoModal.toggle() })
+                    {
+                        Image(systemName: "info.circle")
+                            .font(.title)
+                            .foregroundColor(Color("MBlue"))
+                            .padding()
+                    }
+                    .sheet(isPresented: self.$infoModal) {
+                        InfoModalView(isOpenModal:  $infoModal)
+                    }
+
                     Spacer()
                     Button(action: { self.showModal = true })
                     {
