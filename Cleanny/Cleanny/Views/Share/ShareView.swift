@@ -121,7 +121,7 @@ struct ShareView: View {
                         if (!user.isEmpty) {
                             user[0].name = text
                         }
-                        viewModel.updateUser(user: me!, name: text, totalPercentage: me!.totalPercentage)
+                        viewModel.updateUser(user: me!, name: text, totalPercentage: user[0].totalPercentage)
                     }
                 }, isFocused: _isFocused)
             }
@@ -153,20 +153,22 @@ struct ShareView: View {
                     try await viewModel.refresh()
                     try await loadFriends()
                 } else {
-                    try await viewModel.addUser(name: "이름을 입력해주세요", totalPercentage: 100)
+                    try await viewModel.addUser(name: "이름을 입력해주세요", totalPercentage: user[0].totalPercentage)
                     try await viewModel.refresh()
                     try await loadFriends()
                 }
             } else {
+                viewModel.updateUser(user: me[0], name: me[0].name, totalPercentage: user[0].totalPercentage)
+                try await viewModel.refresh()
                 self.me = me[0]
+                friends.forEach { friend in
+                    self.friends.append(friend.name)
+                    self.percentageDic[friend.name] = friend.totalPercentage
+                }
+                DispatchQueue.main.async {
+                    loading = false
+                }
             }
-            
-            friends.forEach { friend in
-                self.friends.append(friend.name)
-                self.percentageDic[friend.name] = friend.totalPercentage
-            }
-            
-            loading = false
             
         case .error(_):
             return
@@ -216,12 +218,12 @@ struct CardView: View {
             VStack {
                 ZStack(alignment: .center) {
                     Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
+                        .fill(Color(percentage > 0.5 ? "MBlue" : "MRed").opacity(0.1))
                     Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
+                        .fill(Color(percentage > 0.5 ? "MBlue" : "MRed").opacity(0.1))
                         .padding()
                     Circle()
-                        .fill(Color(percentage > 0.25 ? "MBlue" : "MRed").opacity(0.1))
+                        .fill(Color(percentage > 0.5 ? "MBlue" : "MRed").opacity(0.1))
                         .padding()
                         .padding()
                     
@@ -281,7 +283,7 @@ struct ProgressBar: View {
                     )
                 
                 Capsule()
-                    .fill(LinearGradient(gradient: Gradient(colors: [Color(percentage > 0.25 ? "GMBlue" : "GMRed"), Color(percentage > 0.25 ? "MBlue" : "MRed")]), startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color(percentage > 0.5 ? "GMBlue" : "GMRed"), Color(percentage > 0.5 ? "MBlue" : "MRed")]), startPoint: .leading, endPoint: .trailing))
                     .frame(height: 10)
                     .frame(maxWidth: geometry.size.width * percentage)
             }
