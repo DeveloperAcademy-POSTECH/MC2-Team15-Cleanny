@@ -14,7 +14,7 @@
 
 ## :people_hugging: Authors
 
-- [@홍정민](https://github.com/jeohong) | [@이채민](https://github.com/JMM00) | [@정윤성](https://github.com/JungYunseong) | [@유종건](https://github.com/mycookie1) | [@전지민](https://github.com/shinehardd) | [@한경준](https://github.com/HanGyeongjun)
+- [@홍정민](https://github.com/jeohong) | [@이채민](https://github.com/shinehardd) | [@정윤성](https://github.com/JungYunseong) | [@유종건](https://github.com/mycookie1) | [@전지민](https://github.com/JMM00) | [@한경준](https://github.com/HanGyeongjun)
 
 
 ## :framed_picture: App Store Link
